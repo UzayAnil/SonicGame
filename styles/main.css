@@ -1,3 +1,38 @@
+@font-face {
+  font-family: Flipps-Regular;
+  src: url("Fipps-Regular.otf") format("opentype"); }
+/******************
+      FONTS
+********************/
+body {
+  font-family: Fipps-Regular;
+  margin: 0;
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  background-size: cover; }
 
+.start-screen-container {
+  width: 1000px;
+  margin: 0 auto; }
+
+.left-container {
+  width: 495px;
+  display: inline-block;
+  text-align: center; }
+
+.right-container {
+  width: 495px;
+  display: inline-block;
+  text-align: center; }
+
+.left-container img {
+  width: 400px; }
+
+.right-container img {
+  width: 400px; }
+
+.battle-button {
+  display: block;
+  width: 100px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */
