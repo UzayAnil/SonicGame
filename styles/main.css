@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Flipps-Regular;
+  font-family: Fipps-Regular;
   src: url("Fipps-Regular.otf") format("opentype"); }
 /******************
       FONTS
@@ -9,6 +9,10 @@ body {
   margin: 0;
   background: url(../images/background.jpg) no-repeat center center fixed;
   background-size: cover; }
+
+h1 {
+  text-align: center;
+  margin: 0px; }
 
 .start-screen-container {
   width: 1000px;
@@ -25,14 +29,22 @@ body {
   text-align: center; }
 
 .left-container img {
-  width: 400px; }
+  width: 325px; }
 
 .right-container img {
   width: 400px; }
 
 .battle-button {
   display: block;
-  width: 100px;
-  margin: 0 auto; }
+  width: 250px;
+  margin: 0 auto;
+  padding: 0px;
+  background-color: #EB0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: Fipps-Regular;
+  cursor: pointer;
+  outline: none; }
 
 /*# sourceMappingURL=main.css.map */
