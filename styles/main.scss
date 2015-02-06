@@ -1,7 +1,7 @@
 @import "bourbon/bourbon";
 
 @font-face {
-  font-family: Flipps-Regular;
+  font-family: Fipps-Regular;
   src: url("Fipps-Regular.otf") format('opentype');
 
 }
@@ -15,6 +15,11 @@ body {
   margin: 0;
   background: url(../images/background.jpg) no-repeat center center fixed;
   background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  margin: 0px;
 }
 
 .start-screen-container {
@@ -35,7 +40,7 @@ body {
 }
 
 .left-container img {
-  width: 400px;
+  width: 325px;
 }
 
 .right-container img {
@@ -44,6 +49,15 @@ body {
 
 .battle-button {
   display: block;
-  width: 100px;
+  width: 250px;
   margin: 0 auto;
+  padding: 0px;
+  background-color: #EB0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: $primary-font;
+  cursor: pointer;
+  outline: none;
+
 }
