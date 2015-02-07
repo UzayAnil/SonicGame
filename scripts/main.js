@@ -7,6 +7,11 @@
 
     //**** Select Game Type Event ****//
     $(".game-type").on("change", gameType);
+    $(".replay-button").on('click', replay);
+
+    function replay(){
+      location.reload();
+    }
 
     function gameType() {
         var selectedGameType = $('.game-type').val();
@@ -14,6 +19,7 @@
         $(".battle-button").toggleClass('hidden');
         $(".right-container").removeClass('hidden');
         $(".left-container").removeClass('hidden');
+        $("#intro-image").addClass('hidden');
 
         console.log(selectedGameType);
       }
@@ -154,6 +160,8 @@
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
         $("h2").removeClass('hidden');
         $("progress").addClass('hidden');
+        $(".attack-button").addClass('hidden');
+        $(".replay-button").removeClass('hidden');
       }
 
       console.log(selectedCharacter.health);

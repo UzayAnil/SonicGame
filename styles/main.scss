@@ -17,6 +17,12 @@ body {
   background-size: cover;
 
 }
+
+#intro-image {
+  position: absolute;
+  left: 90px;
+  top: 90px;
+}
 h1 {
   text-align: center;
   margin: 0 0 50px;
@@ -100,4 +106,34 @@ progress {
 .hidden {
   max-height: 0;
   opacity: 0;
+
+}
+.attack-button {
+  display: block;
+  width: 250px;
+  margin-top: 25px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #eb0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: $primary-font;
+  cursor: pointer;
+  outline: none;
+}
+
+.replay-button {
+  display: block;
+  width: 250px;
+  margin-top: 25px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #eb0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: $primary-font;
+  cursor: pointer;
+  outline: none;
 }
