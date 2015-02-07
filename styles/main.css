@@ -89,6 +89,23 @@ progress {
   max-height: 0;
   opacity: 0; }
 
+.damage-transition {
+  opacity: 0; }
+
+#enemy-damage-display {
+  position: absolute;
+  left: 220px;
+  top: 121px;
+  font-size: 60px;
+  transition: opacity 300ms; }
+
+#character-damage-display {
+  position: absolute;
+  left: 220px;
+  top: 121px;
+  font-size: 60px;
+  transition: opacity 300ms; }
+
 .attack-button {
   display: block;
   width: 250px;

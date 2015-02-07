@@ -12,7 +12,10 @@
     function replay(){
       location.reload();
     }
-
+    
+    //
+    // Game Type Selection
+    //
     function gameType() {
         var selectedGameType = $('.game-type').val();
         $(".game-type").toggleClass('hidden');
@@ -20,12 +23,11 @@
         $(".right-container").removeClass('hidden');
         $(".left-container").removeClass('hidden');
         $("#intro-image").addClass('hidden');
-
-        console.log(selectedGameType);
       }
-      //
-      //**** Select Character Event ****//
-      //
+
+    //
+    //**** Select Character Event ****//
+    //
     $(".battle-button").on("click", selectCharacter);
 
     function selectCharacter() {
@@ -42,6 +44,7 @@
         selectedCharacter = tails;
         $(".selected-char-image").attr("src", "images/tails.png");
       }
+
       //
       //** Randomly select and display enemy**//
       //
@@ -133,20 +136,16 @@
 
     function attackButtonClick() {
 
-
       if (selectedEnemy.health > 0 && selectedCharacter.health > 0) {
 
         selectedCharacter.attacks(selectedEnemy);
         _.delay(selectedEnemy.attacks, 500, selectedCharacter);
 
-
         updateLifeStatus(selectedEnemy);
         _.delay(updateLifeStatus, 500, selectedCharacter);
 
-        // if (selectedCharacter.health > 0) {
-        //   selectedEnemy.attacks(selectedCharacter);
-        //   updateLifeStatus(selectedCharacter);
-        // }
+        $('#enemy-damage-display').addClass('.damage-transition');
+
       }
     }
 
@@ -155,7 +154,9 @@
     //
     Character.prototype.attacks = function(attacked) {
       // var attacker = this.name;
-      attacked.health = attacked.health - (selectedCharacter.attack * _.random(2, 7));
+      var characterAttack = selectedCharacter.attack * _.random(2, 7);
+      attacked.health = attacked.health - characterAttack;
+      $('#enemy-damage-display').text(String(characterAttack).slice(0,2));
 
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
         $("h2").removeClass('hidden');
@@ -163,8 +164,6 @@
         $(".attack-button").addClass('hidden');
         $(".replay-button").removeClass('hidden');
       }
-
-      console.log(selectedCharacter.health);
     };
 
     //
@@ -172,10 +171,16 @@
     //
     Enemy.prototype.attacks = function(attacked) {
       // var attacker = this.name;
-      attacked.health = attacked.health - (selectedEnemy.attack * _.random(2, 7));
-      console.log(selectedEnemy.health);
+      var enemyAttack = selectedEnemy.attack * _.random(2, 7)
+      attacked.health = attacked.health - enemyAttack;
+      $('#character-damage-display').text(String(enemyAttack).slice(0,2));
+      if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
+        $("h2").removeClass('hidden');
+        $("progress").addClass('hidden');
+        $(".attack-button").addClass('hidden');
+        $(".replay-button").removeClass('hidden');
+      }
     };
-
 
     //
     //Update Health
@@ -183,15 +188,6 @@
     function updateLifeStatus(character) {
       $('#character-health-bar').attr('value', selectedCharacter.health);
       $('#enemy-health-bar').attr('value', selectedEnemy.health);
-
     }
-
-
-
-    //**** Battle Screen ****//
-
-
-
-
   });
 })();

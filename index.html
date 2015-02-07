@@ -5,9 +5,13 @@
   <meta charset="UTF-8">
   <title>Sonic Game</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
+
+  <audio src="soundtrack.mp3" autoplay>
+  </audio>
 
   <div class="start-screen-container">
 
@@ -41,13 +45,16 @@
     <h1>Fight! Fight! Fight!</h1>
     <h2 class="hidden">GAME OVER!</h2>
     <div class="left-container">
-      <progress id="character-health-bar" value="900" max="100"></progress>
+      <progress id="character-health-bar"></progress>
       <img src="#" class="selected-char-image" />
+      <p id="character-damage-display"></p>
     </div>
 
     <div class="right-container">
-      <progress id="enemy-health-bar" value="900" max="100"></progress>
+      <progress id="enemy-health-bar"></progress>
       <img src="#" class="selected-enemy-image" />
+      <p id="enemy-damage-display"></p>
+
     </div>
     <button class="attack-button">Attack!</button>
     <button class="replay-button hidden">Replay</button>
