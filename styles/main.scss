@@ -13,46 +13,69 @@ $primary-font: Fipps-Regular;
 body {
   font-family: $primary-font;
   margin: 0;
-  background: url(../images/background.jpg) no-repeat center center fixed;
+  background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover;
-}
 
+}
 h1 {
   text-align: center;
-  margin: 0px;
-}
+  margin: 0 0 50px;
 
+}
+h2 {
+  position: absolute;
+  left: 351px;
+  top: 80px;
+  font-size: 100px;
+  z-index: 1;
+  line-height: 1.5;
+  color: orange;
+
+}
+.game-type {
+  position: absolute;
+  left: 330px;
+  top: 581px;
+  border: none;
+  outline: none;
+  border: solid white 3px;
+  background-color: red;
+  color: black;
+  font-family: $primary-font;
+  font-size: 1em;
+
+}
 .start-screen-container {
   width: 1000px;
   margin: 0 auto;
-}
+  position: relative;
 
+}
+.battle-screen-container {
+  width: 1000px;
+  margin: 0 auto;
+
+}
 .left-container {
   width: 495px;
   display: inline-block;
   text-align: center;
-}
+  position: relative;
 
+}
 .right-container {
   width: 495px;
   display: inline-block;
   text-align: center;
-}
+  position: relative;
 
-.left-container img {
-  width: 325px;
 }
-
-.right-container img {
-  width: 400px;
-}
-
 .battle-button {
   display: block;
   width: 250px;
   margin: 0 auto;
-  padding: 0px;
-  background-color: #EB0000;
+  padding: 0;
+  background-color: #eb0000;
   color: #000;
   font-size: 25px;
   border-radius: 3px;
@@ -60,4 +83,21 @@ h1 {
   cursor: pointer;
   outline: none;
 
+}
+.battle-screen-container {
+  display: none;
+
+}
+progress {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: -20px;
+  left: 30%;
+
+}
+.hidden {
+  max-height: 0;
+  opacity: 0;
 }

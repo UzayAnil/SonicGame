@@ -10,28 +10,55 @@
 <body>
 
   <div class="start-screen-container">
-    <h1>Select your character</h1>
 
-    <div class="left-container">
+    <h1>Let's play Sonic!</h1>
+    <select class="game-type">
+      <option selected>Select your Opponent!</option>
+      <option selected-value="1-player">Computer</option>
+      <option selected-value="2-player">Another Player</option>
+    </select>
 
-        <img src="images/sonic.png" />
+    <div class="left-container hidden">
 
-      <button class="battle-button" name="left-battle-button">Let's Fight!</button>
+      <img src="images/sonic.png" />
+
+      <button class="battle-button hidden" data-character="sonic">Let's Fight!</button>
     </div>
 
-    <div class="right-container">
+    <div class="right-container hidden">
 
-        <img src="images/tails.png" />
 
-      <button class="battle-button" name="right-battle-button">Let's Fight!</button>
+      <img src="images/tails.png" />
+
+      <button class="battle-button hidden" data-character="tails">Let's Fight!</button>
+
     </div>
 
   </div>
 
+  <div class="battle-screen-container">
+    <h1>Fight! Fight! Fight!</h1>
+    <h2 class="hidden">GAME OVER!</h2>
+    <div class="left-container">
+      <progress id="character-health-bar" value="900" max="100"></progress>
+      <img src="#" class="selected-char-image" />
+    </div>
+
+    <div class="right-container">
+      <progress id="enemy-health-bar" value="900" max="100"></progress>
+      <img src="#" class="selected-enemy-image" />
+    </div>
+    <button class="attack-button">attack</button>
+  </div>
+
+
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
-  <script type="text/template" data-template-name="fight"></script>
   <script src="scripts/main.js" type="text/javascript"></script>
+
+
+
+
 </body>
 
 
