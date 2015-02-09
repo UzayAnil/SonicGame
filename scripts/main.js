@@ -12,7 +12,7 @@
     function replay(){
       location.reload();
     }
-    
+
     //
     // Game Type Selection
     //
@@ -40,9 +40,11 @@
       if (selectedCharacter == 'sonic') {
         selectedCharacter = sonic;
         $(".selected-char-image").attr("src", "images/sonic.png");
+        $(".character-name").text(sonic.name);
       } else if (selectedCharacter == 'tails') {
         selectedCharacter = tails;
         $(".selected-char-image").attr("src", "images/tails.png");
+        $(".character-name").text(tails.name);
       }
 
       //
@@ -52,9 +54,11 @@
       if (randomNumber <= 50) {
         selectedEnemy = eggman;
         $(".selected-enemy-image").attr("src", "images/eggman.png");
+        $(".enemy-name").text(eggman.name);
       } else if (randomNumber > 50) {
         selectedEnemy = espio;
         $(".selected-enemy-image").attr("src", "images/espio.png");
+        $(".enemy-name").text(espio.name);
       }
       // console.log(selectedEnemy);
       // console.log(selectedCharacter);
@@ -119,7 +123,7 @@
       image: "",
       health: 1.5,
       attack: 1.0,
-      name: 'Eggman'
+      name: 'Dr.Eggman'
     });
 
     var espio = new Enemy({
@@ -139,10 +143,10 @@
       if (selectedEnemy.health > 0 && selectedCharacter.health > 0) {
 
         selectedCharacter.attacks(selectedEnemy);
-        _.delay(selectedEnemy.attacks, 500, selectedCharacter);
+        _.delay(selectedEnemy.attacks, 300, selectedCharacter);
 
         updateLifeStatus(selectedEnemy);
-        _.delay(updateLifeStatus, 500, selectedCharacter);
+        _.delay(updateLifeStatus, 300, selectedCharacter);
 
         $('#enemy-damage-display').addClass('.damage-transition');
 
@@ -157,12 +161,23 @@
       var characterAttack = selectedCharacter.attack * _.random(2, 7);
       attacked.health = attacked.health - characterAttack;
       $('#enemy-damage-display').text(String(characterAttack).slice(0,2));
-
+      if (attacked.health > 99) {
+        $('#enemy-health-display').text(String(attacked.health).slice(0,3));
+      } else {
+        $('#enemy-health-display').text(String(attacked.health).slice(0,2));
+      }
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
         $("h2").removeClass('hidden');
         $("progress").addClass('hidden');
         $(".attack-button").addClass('hidden');
         $(".replay-button").removeClass('hidden');
+        $("#character-damage-display").addClass('hidden');
+        $("#enemy-damage-display").addClass('hidden');
+        $("#character-health-display").addClass('hidden');
+        $("#enemy-health-display").addClass('hidden');
+        $(".character-name").addClass("hidden");
+        $(".enemy-name").addClass("hidden");
+
       }
     };
 
@@ -174,11 +189,20 @@
       var enemyAttack = selectedEnemy.attack * _.random(2, 7)
       attacked.health = attacked.health - enemyAttack;
       $('#character-damage-display').text(String(enemyAttack).slice(0,2));
+      $('#character-health-display').text(String(attacked.health).slice(0,3));
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
         $("h2").removeClass('hidden');
         $("progress").addClass('hidden');
         $(".attack-button").addClass('hidden');
         $(".replay-button").removeClass('hidden');
+        $("#character-damage-display").addClass('hidden');
+        $("#enemy-damage-display").addClass('hidden');
+        $("#character-health-display").addClass('hidden');
+        $("#enemy-health-display").addClass('hidden');
+        $(".character-name").addClass("hidden");
+        $(".enemy-name").addClass("hidden");
+
+
       }
     };
 

@@ -10,6 +10,16 @@ body {
   background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover; }
 
+.character-name {
+  position: absolute;
+  top: -63px;
+  left: 337px; }
+
+.enemy-name {
+  position: absolute;
+  right: 326px;
+  top: -64px; }
+
 #intro-image {
   position: absolute;
   left: 90px;
@@ -77,13 +87,49 @@ h2 {
 .battle-screen-container {
   display: none; }
 
+/* All Progress Bars */
+progress {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* Determinate */
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* Indeterminate */
+progress:not([value]) {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 progress {
   display: block;
   text-align: center;
   margin: 0 auto;
   position: absolute;
-  top: -20px;
-  left: 30%; }
+  top: -42px;
+  left: 35%; }
+
+progress::-webkit-progress-bar {
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 3px; }
+
+progress::-webkit-progress-value {
+  background-color: #DB0088;
+  border-radius: 3px; }
+
+#enemy-health-display, #character-health-display {
+  position: absolute;
+  left: 225px;
+  top: -65px;
+  z-index: 1; }
 
 .hidden {
   max-height: 0;
@@ -94,15 +140,15 @@ progress {
 
 #enemy-damage-display {
   position: absolute;
-  left: 220px;
-  top: 121px;
+  left: 200px;
+  top: 21px;
   font-size: 60px;
   transition: opacity 300ms; }
 
 #character-damage-display {
   position: absolute;
-  left: 220px;
-  top: 121px;
+  left: 189px;
+  top: 29px;
   font-size: 60px;
   transition: opacity 300ms; }
 
@@ -133,5 +179,8 @@ progress {
   font-family: Fipps-Regular;
   cursor: pointer;
   outline: none; }
+
+#character-health-bar, #enemy-health-bar {
+  height: 1.5em; }
 
 /*# sourceMappingURL=main.css.map */
