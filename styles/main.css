@@ -7,44 +7,180 @@
 body {
   font-family: Fipps-Regular;
   margin: 0;
-  background: url(../images/background.jpg) no-repeat center center fixed;
+  background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover; }
+
+.character-name {
+  position: absolute;
+  top: -63px;
+  left: 337px; }
+
+.enemy-name {
+  position: absolute;
+  right: 326px;
+  top: -64px; }
+
+#intro-image {
+  position: absolute;
+  left: 90px;
+  top: 90px; }
 
 h1 {
   text-align: center;
-  margin: 0px; }
+  margin: 0 0 50px; }
+
+h2 {
+  position: absolute;
+  left: 351px;
+  top: 80px;
+  font-size: 100px;
+  z-index: 1;
+  line-height: 1.5;
+  color: orange; }
+
+.game-type {
+  position: absolute;
+  left: 330px;
+  top: 581px;
+  border: none;
+  outline: none;
+  border: solid white 3px;
+  background-color: red;
+  color: black;
+  font-family: Fipps-Regular;
+  font-size: 1em; }
 
 .start-screen-container {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative; }
+
+.battle-screen-container {
   width: 1000px;
   margin: 0 auto; }
 
 .left-container {
   width: 495px;
   display: inline-block;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
 
 .right-container {
   width: 495px;
   display: inline-block;
-  text-align: center; }
-
-.left-container img {
-  width: 325px; }
-
-.right-container img {
-  width: 400px; }
+  text-align: center;
+  position: relative; }
 
 .battle-button {
   display: block;
   width: 250px;
   margin: 0 auto;
-  padding: 0px;
-  background-color: #EB0000;
+  padding: 0;
+  background-color: #eb0000;
   color: #000;
   font-size: 25px;
   border-radius: 3px;
   font-family: Fipps-Regular;
   cursor: pointer;
   outline: none; }
+
+.battle-screen-container {
+  display: none; }
+
+/* All Progress Bars */
+progress {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* Determinate */
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/* Indeterminate */
+progress:not([value]) {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+progress {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: -42px;
+  left: 35%; }
+
+progress::-webkit-progress-bar {
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 3px; }
+
+progress::-webkit-progress-value {
+  background-color: #DB0088;
+  border-radius: 3px; }
+
+#enemy-health-display, #character-health-display {
+  position: absolute;
+  left: 225px;
+  top: -65px;
+  z-index: 1; }
+
+.hidden {
+  max-height: 0;
+  opacity: 0; }
+
+.damage-transition {
+  opacity: 0; }
+
+#enemy-damage-display {
+  position: absolute;
+  left: 200px;
+  top: 21px;
+  font-size: 60px;
+  transition: opacity 300ms; }
+
+#character-damage-display {
+  position: absolute;
+  left: 189px;
+  top: 29px;
+  font-size: 60px;
+  transition: opacity 300ms; }
+
+.attack-button {
+  display: block;
+  width: 250px;
+  margin-top: 25px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #eb0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: Fipps-Regular;
+  cursor: pointer;
+  outline: none; }
+
+.replay-button {
+  display: block;
+  width: 250px;
+  margin-top: 25px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #eb0000;
+  color: #000;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: Fipps-Regular;
+  cursor: pointer;
+  outline: none; }
+
+#character-health-bar, #enemy-health-bar {
+  height: 1.5em; }
 
 /*# sourceMappingURL=main.css.map */
