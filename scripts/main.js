@@ -2,13 +2,24 @@
   'use strict';
 
   $(document).ready(function() {
+    //
+    // Domain/Data
+    //
+    // Defining Charater and Enemy variables
     var selectedEnemy;
     var selectedCharacter;
 
+    //
+    // Interaction
+    //
     //**** Select Game Type Event ****//
     $(".game-type").on("change", gameType);
-    $(".replay-button").on('click', replay);
 
+    //
+    // Interaction
+    //
+    // Replay Button Event
+    $(".replay-button").on('click', replay);
     function replay(){
       location.reload();
     }
@@ -17,7 +28,13 @@
     // Game Type Selection
     //
     function gameType() {
+      //
+      // Interaction
+      //
         var selectedGameType = $('.game-type').val();
+        //
+        // Application State
+        //
         $(".game-type").toggleClass('hidden');
         $(".battle-button").toggleClass('hidden');
         $(".right-container").removeClass('hidden');
@@ -28,14 +45,26 @@
     //
     //**** Select Character Event ****//
     //
+    //
+    // Interaction
+    //
     $(".battle-button").on("click", selectCharacter);
 
     function selectCharacter() {
+      //
+      // Domain/Data
+      //
       selectedCharacter = $(this).attr('data-character');
+      //
+      // Application State
+      //
       $(".start-screen-container").hide();
       $(".battle-screen-container").show();
       //
       //** Selected character Display **//
+      //
+      //
+      // Application State
       //
       if (selectedCharacter == 'sonic') {
         selectedCharacter = sonic;
@@ -50,18 +79,33 @@
       //
       //** Randomly select and display enemy**//
       //
+      //
+      // Domain/Data
+      //
       var randomNumber = _.random(0, 100);
       if (randomNumber <= 50) {
         selectedEnemy = eggman;
+        //
+        // Application State
+        //
         $(".selected-enemy-image").attr("src", "images/eggman.png");
         $(".enemy-name").text(eggman.name);
+        //
+        // Domain/Data
+        //
       } else if (randomNumber > 50) {
         selectedEnemy = espio;
+        //
+        // Application State
+        //
         $(".selected-enemy-image").attr("src", "images/espio.png");
         $(".enemy-name").text(espio.name);
       }
-      // console.log(selectedEnemy);
-      // console.log(selectedCharacter);
+
+
+      //
+      // Application State
+      //
       $('#character-health-bar').attr('max', selectedCharacter.health);
       $('#enemy-health-bar').attr('max', selectedEnemy.health);
     }
@@ -69,6 +113,11 @@
     //
     //** Character Prototype **//
     //
+
+    //
+    // Domain/Data
+    //
+
     var Character = function(options) {
       var options = options || {};
       _.defaults(options, {
@@ -87,6 +136,11 @@
     //
     //** Enemy Prototype **//
     //
+
+
+    //
+    // Domain/Data
+    //
     var Enemy = function(options) {
       var options = options || {};
       _.defaults(options, {
@@ -104,6 +158,11 @@
 
     //
     //** Character Constructors **//
+    //
+
+
+    //
+    // Domain/Data
     //
     var sonic = new Character({
       image: "",
@@ -136,6 +195,12 @@
     //
     //** Attack Button **//
     //
+
+    //
+    // Interaction
+    //
+
+
     $(".attack-button").on("click", attackButtonClick);
 
     function attackButtonClick() {
@@ -156,16 +221,33 @@
     //
     //Attack function on Character Prototype
     //
+
+    //
+    // Domain/Data
+    //
     Character.prototype.attacks = function(attacked) {
-      // var attacker = this.name;
+
+
+      //
+      // Domain/Data
+      //
       var characterAttack = selectedCharacter.attack * _.random(2, 7);
       attacked.health = attacked.health - characterAttack;
+
+
+      //
+      // Presentation
+      //
       $('#enemy-damage-display').text(String(characterAttack).slice(0,2));
       if (attacked.health > 99) {
         $('#enemy-health-display').text(String(attacked.health).slice(0,3));
       } else {
         $('#enemy-health-display').text(String(attacked.health).slice(0,2));
       }
+
+      //
+      // Application State
+      //
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
         $("h2").removeClass('hidden');
         $("progress").addClass('hidden');
@@ -184,13 +266,27 @@
     //
     //Attack function on Enemy Prototype
     //
+
+    //
+    // Domain/Data
+    //
     Enemy.prototype.attacks = function(attacked) {
-      // var attacker = this.name;
-      var enemyAttack = selectedEnemy.attack * _.random(2, 7)
+      var enemyAttack = selectedEnemy.attack * _.random(2, 7);
       attacked.health = attacked.health - enemyAttack;
+
+      //
+      // Presentation
+      //
       $('#character-damage-display').text(String(enemyAttack).slice(0,2));
       $('#character-health-display').text(String(attacked.health).slice(0,3));
+      //
+      // Domain/Data
+      //
       if (selectedEnemy.health <= 0 || selectedCharacter.health <= 0) {
+
+        //
+        // Application/Presentation
+        //
         $("h2").removeClass('hidden');
         $("progress").addClass('hidden');
         $(".attack-button").addClass('hidden');
@@ -201,13 +297,15 @@
         $("#enemy-health-display").addClass('hidden');
         $(".character-name").addClass("hidden");
         $(".enemy-name").addClass("hidden");
-
-
       }
     };
 
     //
     //Update Health
+    //
+
+    //
+    // Application State
     //
     function updateLifeStatus(character) {
       $('#character-health-bar').attr('value', selectedCharacter.health);
