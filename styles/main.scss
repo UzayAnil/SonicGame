@@ -42,7 +42,7 @@ h1 {
 }
 h2 {
   position: absolute;
-  left: 351px;
+  left: 300px;
   top: 80px;
   font-size: 100px;
   z-index: 1;
@@ -72,6 +72,7 @@ h2 {
 .battle-screen-container {
   width: 1000px;
   margin: 0 auto;
+  position: relative;
 
 }
 .left-container {
